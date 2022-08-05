@@ -1,0 +1,20 @@
+<div class="joke-search-form-container">
+  <div class="form-text">
+    <p class="joke-search-heading">Hey!</p>
+    <p class="joke-search-main-text">Let's try to find joke for you!</p>
+  </div>
+  <form action="" [formGroup]="searchForm" (submit)="handleSubmit($event)">
+    <mat-radio-group aria-label="Select an option" formControlName="searchType" class="radio-group">
+      <mat-radio-button class="radio-group-item" value="random">Random</mat-radio-button>
+      <mat-radio-button class="radio-group-item" value="category">From categories</mat-radio-button>
+      <app-button-groups *ngIf="searchForm.controls['searchType'].value === 'category'" [categories]="['business', 'politicy', 'random', 'funny']" formControlName="searchCategory" class="radio-group-item"></app-button-groups>
+      <mat-radio-button class="radio-group-item" value="searchText">Search</mat-radio-button>
+      <mat-form-field *ngIf="searchForm.controls['searchType'].value === 'searchText'" appearance="standard">
+        <mat-label>Search text...</mat-label>
+        <input matInput type="text" formControlName="searchText">
+      </mat-form-field>
+    </mat-radio-group>
+    <button mat-button  mat-flat-button color="primary">Get Jokes</button>
+  </form>
+</div>
+

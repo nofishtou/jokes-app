@@ -1,0 +1,12 @@
+<div class="button-groups">
+  <button
+    mat-stroked-button
+    *ngFor="let category of categories"
+    class="button-group"
+    [color] = "selected === category ? 'primary' : ''"
+    [attr.data-category]="category"
+    (click)="selectCategory($event)"
+  >
+    {{ category }}
+  </button>
+</div>

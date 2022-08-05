@@ -1,0 +1,83 @@
+.joke-card {
+  padding: 40px;
+  width: 680px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+}
+
+.joke-header {
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.joke-body {
+  display: flex;
+}
+
+.joke-icon {
+  margin-right: 20px;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+::ng-deep .joke-icon .mat-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.joke-content {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.joke-id {
+  font-size: 14px;
+  line-height: 14px;
+  color: #8EA7FF;
+}
+
+::ng-deep .joke-id .mat-icon {
+  padding-left: 6px;
+  width: 14px;
+  height: 14px;
+}
+
+.joke-footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.joke-date{
+
+  font-size: 14px;
+  line-height: 0px;
+}
+
+.joke-category {
+  padding: 6px 20px;
+  background-color: #ffffff;
+  border-radius: 6px;
+}
+
+.joke-category span {
+  font-size: 14px;
+  line-height: 0;
+  letter-spacing: 2px;
+}
+
+.text-gray {
+  color: #ABABAB;
+}
