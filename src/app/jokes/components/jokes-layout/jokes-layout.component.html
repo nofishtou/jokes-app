@@ -1,1 +1,3 @@
-<app-joke></app-joke>
+<ng-container *ngIf="$jokes | async; let jokes">
+  <app-joke *ngFor="let joke of jokes" [joke]="joke"></app-joke>
+</ng-container>

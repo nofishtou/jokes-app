@@ -1,15 +1,15 @@
 <div class="favourite-card">
   <div class="favourite-header">
-    <mat-icon aria-label="Empty heart icon" svgIcon="appHeart"></mat-icon>
+    <mat-icon aria-label="Empty heart icon" (click)="removeFromFavourites(favourite)" svgIcon="appHeart"></mat-icon>
   </div>
   <div class="favourite-body">
     <div class="favourite-icon">
       <mat-icon aria-label="Message icon" svgIcon="appMessage"></mat-icon>
     </div>
     <div class="favourite-content">
-      <div class="favourite-id"><span class="text-gray">ID:</span><a href="https://google.com.ua">12123123123123123213<mat-icon aria-label="Message icon" svgIcon="appLink"></mat-icon></a></div>
+      <div class="favourite-id"><span class="text-gray">ID:</span><a href="{{favourite.url}}">{{favourite.id}}<mat-icon aria-label="Message icon" svgIcon="appLink"></mat-icon></a></div>
       <div class="favourite-text">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus animi alias optio, similique pariatur id doloremque, eos quaerat repellendus reprehenderit eligendi commodi rem maiores ut assumenda, esse accusamus. Consequatur, labore.</p>
+        <p>{{favourite.value}}</p>
       </div>
       <div class="favourite-footer">
         <span class="favourite-date text-gray"> Last update: 666 hours ago</span>

@@ -1,7 +1,7 @@
 <div class="main-container">
   <div class="content-container">
     <app-header></app-header>
-    <app-main></app-main>
+    <app-main [categories]="categories" (searchFormSubmit)="searchFormSubmitHandler($event)"></app-main>
     <app-footer></app-footer>
   </div>
   <app-favourites-layout></app-favourites-layout>

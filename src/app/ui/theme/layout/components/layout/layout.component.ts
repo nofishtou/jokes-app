@@ -1,16 +1,22 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { IJoke } from 'src/app/core/models/joke.interface';
+import { ISearchForm } from 'src/app/core/models/searchForm.interface';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent {
+  @Input() categories!: string[];
+  @Input() jokes!: IJoke[];
 
-  constructor() { }
+  @Output() searchFormSubmit = new EventEmitter<ISearchForm>();
 
-  ngOnInit(): void {
+  constructor() {}
+
+  searchFormSubmitHandler($event: ISearchForm) {
+    this.searchFormSubmit.next($event);
   }
-
 }

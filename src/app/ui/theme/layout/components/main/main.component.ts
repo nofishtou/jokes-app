@@ -1,16 +1,21 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { ISearchForm } from 'src/app/core/models/searchForm.interface';
+
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
+  @Input() categories!: string[];
 
-  constructor() { }
+  @Output() searchFormSubmit = new EventEmitter<ISearchForm>();
 
-  ngOnInit(): void {
+  constructor() {}
+
+  searchFormSubmitHandler(searchFormValue: ISearchForm) {
+    this.searchFormSubmit.next(searchFormValue);
   }
-
 }

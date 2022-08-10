@@ -18,11 +18,9 @@ export class ButtonGroupsComponent implements ControlValueAccessor {
   selected = '';
 
   onChange = (selected: string) => {};
-
   onTouched = () => {};
 
   touched = false;
-
   disabled = false;
 
   constructor() {}
@@ -32,7 +30,7 @@ export class ButtonGroupsComponent implements ControlValueAccessor {
 
   selectCategory($event: MouseEvent) {
     const domElement = $event.target as HTMLElement;
-    const button = domElement.closest('.button-group') as HTMLButtonElement;
+    const button = domElement.closest('.group-button') as HTMLButtonElement;
     const category = button.dataset['category'];
 
     this.markAsTouched();
@@ -43,7 +41,6 @@ export class ButtonGroupsComponent implements ControlValueAccessor {
   }
 
   writeValue(selected: string) {
-    console.log(selected);
     this.selected = selected;
   }
 

@@ -2,11 +2,11 @@
   <button
     mat-stroked-button
     *ngFor="let category of categories"
-    class="button-group"
+    class="group-button"
     [color] = "selected === category ? 'primary' : ''"
     [attr.data-category]="category"
     (click)="selectCategory($event)"
   >
-    {{ category }}
+    {{ category | uppercase }}
   </button>
 </div>

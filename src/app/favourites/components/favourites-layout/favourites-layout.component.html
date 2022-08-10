@@ -1,2 +1,5 @@
 <p class="favourites-heading">Favourites</p>
-<app-favourite></app-favourite>
+<ng-container *ngIf="$favourites | async; let favourites;">
+  <app-favourite *ngFor="let favourite of favourites" [favourite]="favourite"></app-favourite>
+</ng-container>
+
