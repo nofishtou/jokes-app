@@ -45,6 +45,10 @@
   line-height: 26px;
 }
 
+.joke-text {
+  overflow-wrap: anywhere;
+}
+
 .joke-id {
   font-size: 14px;
   line-height: 14px;
@@ -65,7 +69,6 @@
 }
 
 .joke-date{
-
   font-size: 14px;
   line-height: 0px;
 }
