@@ -1,3 +1,8 @@
-<ng-container *ngIf="$jokes | async; let jokes">
+<ng-container *ngIf="$jokes | async; let jokes;">
   <app-joke *ngFor="let joke of jokes" [joke]="joke"></app-joke>
+  <ng-container *ngIf="!jokes.length">
+    <ng-template *ngTemplateOutlet="noJokes"></ng-template>
+  </ng-container>
 </ng-container>
+
+<ng-template #noJokes><span>No Jokes</span></ng-template>
