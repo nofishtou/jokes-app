@@ -1,1 +1,8 @@
 <app-layout [categories]="categories" (searchFormSubmit)=" searchFormSubmitHandler($event)"></app-layout>
+
+<div *ngIf="loading" class="loading-container">
+  <mat-progress-spinner
+    color="primary"
+    mode="indeterminate">
+  </mat-progress-spinner>
+</div>
