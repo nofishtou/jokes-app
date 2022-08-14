@@ -4,6 +4,7 @@ import { JokeComponent } from './components/joke/joke.component';
 import { JokesLayoutComponent } from './components/jokes-layout/jokes-layout.component';
 import { MaterialModule } from '../material/material.module';
 import { IconsModule } from '../ui/icons/icons.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -15,7 +16,8 @@ import { IconsModule } from '../ui/icons/icons.module';
   imports: [
     CommonModule,
     MaterialModule,
-    IconsModule
+    IconsModule,
+    SharedModule
   ],
   exports: [
     JokesLayoutComponent

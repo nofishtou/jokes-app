@@ -12,7 +12,7 @@
         <p>{{favourite.value}}</p>
       </div>
       <div class="favourite-footer">
-        <span class="favourite-date text-gray"> Last update: 666 hours ago</span>
+        <span class="favourite-date text-gray"> Last update: {{favourite.created_at | timeToHours}} hours ago</span>
       </div>
     </div>
   </div>

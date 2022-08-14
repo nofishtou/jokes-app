@@ -14,7 +14,7 @@
         <p>{{joke.value}}</p>
       </div>
       <div class="joke-footer">
-        <span class="joke-date text-gray"> Last update: 666 hours ago</span>
+        <span class="joke-date text-gray"> Last update: {{ joke.created_at | timeToHours}} hours ago</span>
         <div  class="joke-category" *ngFor="let category of joke.categories">
           <span>{{category | uppercase}}</span>
         </div>

@@ -4,6 +4,7 @@ import { FavouritesLayoutComponent } from './components/favourites-layout/favour
 import { FavouriteComponent } from './components/favourite/favourite.component';
 import { MaterialModule } from '../material/material.module';
 import { IconsModule } from '../ui/icons/icons.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -15,7 +16,8 @@ import { IconsModule } from '../ui/icons/icons.module';
   imports: [
     CommonModule,
     MaterialModule,
-    IconsModule
+    IconsModule,
+    SharedModule
   ],
   exports: [
     FavouritesLayoutComponent
