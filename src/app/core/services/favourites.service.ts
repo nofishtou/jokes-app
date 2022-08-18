@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { IFavourite } from '../models/favourite.interface';
 import { IJoke } from '../models/joke.interface';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,12 @@ export class FavouritesService {
   private _favourites = new BehaviorSubject<IFavourite[]>([]);
   favourites = this._favourites.asObservable();
 
-  constructor() {}
+  constructor(private localStorageService: LocalStorageService) {
+    const favourites = this.localStorageService.getFromStorage('favourites');
+    if (favourites) {
+      this.setFavourites(favourites)
+    }
+  }
 
   setFavourites(favourites: IFavourite[]) {
     this._favourites.next(favourites);
@@ -22,8 +28,9 @@ export class FavouritesService {
     }
 
     const favourite = this.convertToFavourite(joke);
-    const favourites = [...this.getFavourites()];
-    this._favourites.next([...favourites, favourite]);
+    const favourites = [...this.getFavourites(), favourite];
+    this._favourites.next([...favourites]);
+    this.localStorageService.addToStorage('favourites', favourites);
   }
 
   convertToFavourite(joke: IJoke): IFavourite {
@@ -42,6 +49,12 @@ export class FavouritesService {
     const updatedFavourites = favourites.filter((favourite: IFavourite) => favourite.id !== id);
 
     this.setFavourites(updatedFavourites);
+
+    this.localStorageService.addToStorage('favourites', favourites);
+
+    if (!updatedFavourites.length) {
+      this.localStorageService.removeFromStorage('favourites');
+    }
   }
 
   isFavourite(id: string) {
